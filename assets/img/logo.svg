@@ -7,12 +7,16 @@
     </linearGradient>
   </defs>
 
-  <!-- Planeta -->
-  <circle cx="50" cy="55" r="26" fill="url(#degradado)"/>
-
-  <!-- Anillo del planeta -->
+  <!-- 1. Anillo completo: se dibuja primero para que quede detrás del planeta -->
   <ellipse cx="50" cy="55" rx="44" ry="10" fill="none"
            stroke="#f2f0ff" stroke-width="3" transform="rotate(-15 50 55)"/>
+
+  <!-- 2. Planeta: tapa la mitad superior del anillo -->
+  <circle cx="50" cy="55" r="26" fill="url(#degradado)"/>
+
+  <!-- 3. Mitad inferior del anillo: se dibuja encima del planeta -->
+  <path d="M6 55 A44 10 0 0 0 94 55" fill="none"
+        stroke="#f2f0ff" stroke-width="3" transform="rotate(-15 50 55)"/>
 
   <!-- Estrella de cuatro puntas -->
   <path d="M80 8 L83 17 L92 20 L83 23 L80 32 L77 23 L68 20 L77 17 Z" fill="#f2f0ff"/>
