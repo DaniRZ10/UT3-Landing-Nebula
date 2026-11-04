@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <title>Logotipo de Nébula</title>
+  <defs>
+    <linearGradient id="degradado" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a5cf6"/>
+      <stop offset="1" stop-color="#5ce1e6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Planeta -->
+  <circle cx="50" cy="55" r="26" fill="url(#degradado)"/>
+
+  <!-- Anillo del planeta -->
+  <ellipse cx="50" cy="55" rx="44" ry="10" fill="none"
+           stroke="#f2f0ff" stroke-width="3" transform="rotate(-15 50 55)"/>
+
+  <!-- Estrella de cuatro puntas -->
+  <path d="M80 8 L83 17 L92 20 L83 23 L80 32 L77 23 L68 20 L77 17 Z" fill="#f2f0ff"/>
+</svg>
