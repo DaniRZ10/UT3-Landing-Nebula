@@ -8,6 +8,12 @@
   --cian: #5ce1e6;
   --texto: #f2f0ff;
   --texto-suave: #a9a6c9;
+
+  /* Color de los detalles del logo (anillo y estrella). Cambia en :hover y :focus */
+  --logo-detalle: var(--texto);
+
+  /* Duración común de todas las transiciones */
+  --transicion: 0.3s ease;
 }
 
 /* ===== Base ===== */
@@ -73,6 +79,35 @@ figcaption {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+/* ===== Logo SVG inline ===== */
+.logo {
+  transition: transform var(--transicion);
+}
+
+/* El anillo y la estrella toman su color de la variable --logo-detalle */
+.logo-anillo {
+  fill: none;
+  stroke: var(--logo-detalle);
+  stroke-width: 3;
+  transition: stroke var(--transicion);
+}
+
+.logo-estrella {
+  fill: var(--logo-detalle);
+  transition: fill var(--transicion);
+}
+
+/* Al pasar el ratón o enfocar con el teclado, cambia la variable y el logo crece un poco */
+.marca:hover,
+.marca:focus {
+  --logo-detalle: var(--cian);
+}
+
+.marca:hover .logo,
+.marca:focus .logo {
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .cabecera ul {
