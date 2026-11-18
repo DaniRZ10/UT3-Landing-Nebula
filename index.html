@@ -154,10 +154,14 @@
     <section id="audio" class="seccion">
       <h2>Sonido ambiental</h2>
       <figure>
-        <audio controls src="assets/audio/ambiente.mp3">
+        <audio id="audio-ambiente" src="assets/audio/ambiente.mp3" preload="metadata">
           Tu navegador no puede reproducir este audio.
           <a href="assets/audio/ambiente.mp3">Descárgalo aquí</a>.
         </audio>
+        <div class="reproductor">
+          <button id="boton-audio" class="boton" type="button" aria-pressed="false">Escuchar ambiente espacial</button>
+          <button id="boton-silencio" class="boton boton-secundario" type="button" aria-pressed="false">Silenciar</button>
+        </div>
         <figcaption>
           "Spaceship Ambience 1" · johnthewizar (vía
           <a href="https://pixabay.com/es/users/freesound_community-46691455/">freesound_community</a>) ·

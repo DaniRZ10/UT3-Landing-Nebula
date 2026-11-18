@@ -193,6 +193,16 @@ figcaption {
   padding: 1rem 2.5rem;
 }
 
+.boton-secundario {
+  border-color: var(--violeta);
+}
+
+.boton-secundario:hover,
+.boton-secundario:focus {
+  background-color: var(--violeta);
+  color: var(--texto);
+}
+
 /* ===== Galería ===== */
 .galeria {
   display: grid;
@@ -327,8 +337,11 @@ figcaption {
   color: var(--fondo);
 }
 
-#audio audio {
-  width: 100%;
+/* ===== Audio ===== */
+.reproductor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 /* ===== Contacto (CTA) ===== */

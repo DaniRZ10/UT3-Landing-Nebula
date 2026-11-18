@@ -96,3 +96,51 @@ document.addEventListener('keydown', function (evento) {
     cerrarModal();
   }
 });
+
+
+
+/* ---------- 3. AUDIO: reproductor propio con la API HTMLMediaElement ---------- */
+
+const audio = document.querySelector('#audio-ambiente');
+const botonAudio = document.querySelector('#boton-audio');
+const botonSilencio = document.querySelector('#boton-silencio');
+
+// Reproducir o pausar según el estado actual (.paused)
+botonAudio.addEventListener('click', function () {
+  if (audio.paused) {
+    audio.play().catch(function () {
+      // Si el navegador no puede reproducirlo, el botón se queda como estaba
+    });
+  } else {
+    audio.pause();
+  }
+});
+
+// El texto del botón se actualiza con los eventos del propio audio,
+// así siempre coincide con lo que está pasando de verdad
+function actualizarBotonAudio() {
+  if (audio.paused) {
+    botonAudio.textContent = 'Escuchar ambiente espacial';
+    botonAudio.setAttribute('aria-pressed', 'false');
+  } else {
+    botonAudio.textContent = 'Pausar ambiente';
+    botonAudio.setAttribute('aria-pressed', 'true');
+  }
+}
+
+audio.addEventListener('play', actualizarBotonAudio);
+audio.addEventListener('pause', actualizarBotonAudio);
+audio.addEventListener('ended', actualizarBotonAudio); // al terminar los 15 s vuelve al estado inicial
+
+// Silenciar o activar el sonido (.muted)
+botonSilencio.addEventListener('click', function () {
+  audio.muted = !audio.muted;
+
+  if (audio.muted) {
+    botonSilencio.textContent = 'Activar sonido';
+    botonSilencio.setAttribute('aria-pressed', 'true');
+  } else {
+    botonSilencio.textContent = 'Silenciar';
+    botonSilencio.setAttribute('aria-pressed', 'false');
+  }
+});
