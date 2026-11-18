@@ -410,3 +410,28 @@ figcaption {
   font-size: 0.85rem;
   color: var(--texto-suave);
 }
+
+
+/* ===== Página de créditos ===== */
+.tabla-creditos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabla-creditos th,
+.tabla-creditos td {
+  padding: 0.6rem;
+  border-bottom: 1px solid var(--fondo-claro);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabla-creditos th {
+  color: var(--cian);
+}
+
+/* En pantallas estrechas la tabla puede desplazarse en horizontal sin romper la página */
+.tabla-scroll {
+  overflow-x: auto;
+}
