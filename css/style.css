@@ -170,9 +170,53 @@ figcaption {
   gap: 1.5rem;
 }
 
-.galeria img {
+/* Visor: la imagen grande */
+.visor {
+  margin-bottom: 1.5rem;
+}
+
+.visor img {
+  width: 100%;
   border-radius: 8px;
   border: 2px solid var(--violeta);
+  opacity: 1;
+  transition: opacity var(--transicion);
+}
+
+/* Clase que pone el JavaScript durante el cambio de imagen (fundido) */
+.visor img.oculta {
+  opacity: 0;
+}
+
+/* La miniatura es un botón: se le quitan los estilos por defecto */
+.miniatura {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 2px solid var(--violeta);
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: transform var(--transicion), opacity var(--transicion), border-color var(--transicion);
+}
+
+.miniatura img {
+  width: 100%;
+}
+
+/* Feedback: al pasar el ratón o enfocar, la miniatura crece y se ilumina */
+.miniatura:hover,
+.miniatura:focus {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* La miniatura que se está viendo en el visor */
+.miniatura.activa {
+  opacity: 1;
+  border-color: var(--cian);
 }
 
 /* ===== Vídeo y audio ===== */

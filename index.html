@@ -7,6 +7,8 @@
   <meta name="description" content="Perfil de Nébula, artista digital especializada en paisajes de ciencia ficción.">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <!-- defer: el script se ejecuta cuando el HTML ya está cargado, así el DOM existe -->
+  <script src="js/main.js" defer></script>
 </head>
 <body>
 
@@ -73,15 +75,31 @@
       </p>
     </section>
 
-    <!-- GALERÍA: 3 miniaturas, cada una con su atribución -->
+    <!-- GALERÍA: visor grande + miniaturas que lo cambian al pulsarlas -->
     <section id="galeria" class="seccion">
       <h2>Galería</h2>
+
+      <!-- Visor: aquí se muestra la versión a alta resolución de la miniatura elegida -->
+      <figure class="visor">
+        <img id="visor-imagen" src="assets/img/galeria-1-grande.webp"
+             alt="Montañas alienígenas de color violeta bajo una gran luna brillante"
+             width="1280" height="800" loading="lazy">
+        <figcaption id="visor-titulo">Paisaje montañoso alienígena con luna</figcaption>
+      </figure>
+
       <div class="galeria">
 
         <figure>
-          <img src="assets/img/galeria-1.webp"
-               alt="Montañas alienígenas de color violeta bajo una gran luna brillante"
-               width="400" height="250" loading="lazy">
+          <!-- Cada miniatura es un botón: se puede pulsar con ratón, dedo o teclado.
+               Los data-* guardan los datos de la versión grande que leerá el JavaScript -->
+          <button class="miniatura activa" type="button" aria-pressed="true"
+                  data-grande="assets/img/galeria-1-grande.webp"
+                  data-alt="Montañas alienígenas de color violeta bajo una gran luna brillante"
+                  data-titulo="Paisaje montañoso alienígena con luna">
+            <img src="assets/img/galeria-1.webp"
+                 alt="Ver en grande: montañas alienígenas bajo una gran luna"
+                 width="400" height="250" loading="lazy">
+          </button>
           <figcaption>
             "Paisaje montañoso alienígena con luna" ·
             <a href="https://pixabay.com/es/users/jck5d-2733400/">JCK5D</a> ·
@@ -91,9 +109,14 @@
         </figure>
 
         <figure>
-          <img src="assets/img/galeria-2.webp"
-               alt="Paisaje rocoso de Titán con los anillos de Saturno ocupando el cielo"
-               width="400" height="250" loading="lazy">
+          <button class="miniatura" type="button" aria-pressed="false"
+                  data-grande="assets/img/galeria-2-grande.webp"
+                  data-alt="Paisaje rocoso de Titán con los anillos de Saturno ocupando el cielo"
+                  data-titulo="Titán bajo los anillos de Saturno">
+            <img src="assets/img/galeria-2.webp"
+                 alt="Ver en grande: Titán bajo los anillos de Saturno"
+                 width="400" height="250" loading="lazy">
+          </button>
           <figcaption>
             "Titán bajo los anillos de Saturno" · Autor desconocido ·
             <a href="https://pixabay.com/es/photos/saturno-espacio-luna-sistema-solar-7044849/">Pixabay</a> ·
@@ -102,9 +125,14 @@
         </figure>
 
         <figure>
-          <img src="assets/img/galeria-3.webp"
-               alt="Nave espacial futurista junto a un exoplaneta azul en el espacio profundo"
-               width="400" height="250" loading="lazy">
+          <button class="miniatura" type="button" aria-pressed="false"
+                  data-grande="assets/img/galeria-3-grande.webp"
+                  data-alt="Nave espacial futurista junto a un exoplaneta azul en el espacio profundo"
+                  data-titulo="Nave espacial junto a un exoplaneta">
+            <img src="assets/img/galeria-3.webp"
+                 alt="Ver en grande: nave espacial junto a un exoplaneta azul"
+                 width="400" height="250" loading="lazy">
+          </button>
           <figcaption>
             "Nave espacial junto a un exoplaneta" ·
             <a href="https://pixabay.com/es/users/terranaut-23759469/">Terranaut</a> ·
