@@ -40,6 +40,19 @@ video {
 
 a {
   color: var(--cian);
+  transition: color var(--transicion);
+}
+
+a:hover,
+a:focus {
+  color: var(--texto);
+}
+
+/* Foco visible en todos los elementos interactivos (navegación con teclado) */
+a:focus,
+button:focus {
+  outline: 3px solid var(--cian);
+  outline-offset: 3px;
 }
 
 h1,
@@ -67,6 +80,7 @@ figcaption {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1rem;
   padding: 1rem 2rem;
   background-color: var(--fondo-claro);
 }
@@ -112,19 +126,27 @@ figcaption {
 
 .cabecera ul {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+/* Enlaces del menú: el padding les da al menos 44 px de alto (zona táctil mínima) */
 .cabecera nav a {
+  display: inline-block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
   color: var(--texto);
   text-decoration: none;
+  transition: color var(--transicion), background-color var(--transicion);
 }
 
-.cabecera nav a:hover {
+.cabecera nav a:hover,
+.cabecera nav a:focus {
   color: var(--cian);
+  background-color: var(--fondo);
 }
 
 /* ===== Hero ===== */
@@ -161,6 +183,11 @@ figcaption {
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 2rem;
+}
+
+/* Todos los títulos de sección centrados, para que la página sea coherente */
+.seccion h2 {
+  text-align: center;
 }
 
 /* ===== Botones (vídeo y audio) ===== */
@@ -259,7 +286,7 @@ figcaption {
   border-color: var(--cian);
 }
 
-/* ===== Vídeo y audio ===== */
+/* ===== Vídeo ===== */
 .video {
   text-align: center;
 }
@@ -341,7 +368,12 @@ figcaption {
 .reproductor {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
+}
+
+#audio figcaption {
+  text-align: center;
 }
 
 /* ===== Contacto (CTA) ===== */
@@ -360,10 +392,14 @@ figcaption {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
+  transition: transform var(--transicion), background-color var(--transicion);
 }
 
-.boton-cta:hover {
+.boton-cta:hover,
+.boton-cta:focus {
+  transform: scale(1.05);
   background-color: var(--fondo-claro);
+  color: var(--texto);
 }
 
 /* ===== Pie de página ===== */
