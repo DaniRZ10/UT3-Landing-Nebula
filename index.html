@@ -144,22 +144,10 @@
       </div>
     </section>
 
-    <!-- VÍDEO con poster y atribución -->
-    <section id="video" class="seccion">
+    <!-- VÍDEO: botón que abre una ventana modal con el reproductor -->
+    <section id="video" class="seccion video">
       <h2>Presentación</h2>
-      <figure>
-        <video controls poster="assets/img/poster.webp" width="1280" height="720" preload="metadata">
-          <source src="assets/video/presentacion.mp4" type="video/mp4">
-          Tu navegador no puede reproducir este vídeo.
-          <a href="assets/video/presentacion.mp4">Descárgalo aquí</a>.
-        </video>
-        <figcaption>
-          "Partícula, espacio, estrella" ·
-          <a href="https://pixabay.com/es/users/diaochun-3373073/">DiaoChun</a> ·
-          <a href="https://pixabay.com/es/videos/part%C3%ADcula-espacio-estrella-galaxy-40222/">Pixabay</a> ·
-          <a href="https://pixabay.com/service/license-summary/">Licencia de contenido de Pixabay</a>
-        </figcaption>
-      </figure>
+      <button id="abrir-video" class="boton boton-grande" type="button">Ver Reel de Animación</button>
     </section>
 
     <!-- AUDIO AMBIENTAL con atribución -->
@@ -198,6 +186,28 @@
     <p>© 2026 Nébula · Artista ficticia creada para la actividad de Diseño de Interfaces Web.</p>
     <p>Logotipo y animación de contacto: creación propia. Resto de recursos: ver atribuciones en cada elemento y en el README.</p>
   </footer>
+
+  <!-- MODAL DEL VÍDEO: oculto hasta que se pulsa "Ver Reel de Animación" -->
+  <div id="modal-video" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" aria-hidden="true">
+    <div class="modal-contenido">
+      <button id="cerrar-video" class="modal-cerrar" type="button" aria-label="Cerrar vídeo">✕</button>
+      <h3 id="modal-titulo">Reel de animación</h3>
+      <figure>
+        <video id="video-reel" controls playsinline poster="assets/img/poster.webp"
+               width="1280" height="720" preload="metadata">
+          <source src="assets/video/presentacion.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este vídeo.
+          <a href="assets/video/presentacion.mp4">Descárgalo aquí</a>.
+        </video>
+        <figcaption>
+          "Partícula, espacio, estrella" ·
+          <a href="https://pixabay.com/es/users/diaochun-3373073/">DiaoChun</a> ·
+          <a href="https://pixabay.com/es/videos/part%C3%ADcula-espacio-estrella-galaxy-40222/">Pixabay</a> ·
+          <a href="https://pixabay.com/service/license-summary/">Licencia de contenido de Pixabay</a>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
 
 </body>
 </html>

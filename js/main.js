@@ -47,3 +47,52 @@ miniaturas.forEach(function (miniatura) {
     }, 300);
   });
 });
+
+
+
+/* ---------- 2. MODAL DE VÍDEO: .play() al abrir y .pause() al cerrar ---------- */
+
+const modal = document.querySelector('#modal-video');
+const video = document.querySelector('#video-reel');
+const botonAbrir = document.querySelector('#abrir-video');
+const botonCerrar = document.querySelector('#cerrar-video');
+
+function abrirModal() {
+  modal.classList.add('abierto');
+  modal.setAttribute('aria-hidden', 'false');
+  botonCerrar.focus();
+
+  // .play() devuelve una Promesa: si el navegador bloquea la reproducción, se captura el error
+  video.play().catch(function () {
+    // El usuario puede darle al play con los controles del propio vídeo
+  });
+}
+
+function cerrarModal() {
+  modal.classList.remove('abierto');
+  modal.setAttribute('aria-hidden', 'true');
+
+  // Detener el vídeo: se pausa y se vuelve al principio
+  video.pause();
+  video.currentTime = 0;
+
+  // Devolver el foco al botón que abrió el modal (accesibilidad con teclado)
+  botonAbrir.focus();
+}
+
+botonAbrir.addEventListener('click', abrirModal);
+botonCerrar.addEventListener('click', cerrarModal);
+
+// Clic fuera del contenido (en el fondo oscuro) también cierra el modal
+modal.addEventListener('click', function (evento) {
+  if (evento.target === modal) {
+    cerrarModal();
+  }
+});
+
+// La tecla Escape también cierra el modal
+document.addEventListener('keydown', function (evento) {
+  if (evento.key === 'Escape' && modal.classList.contains('abierto')) {
+    cerrarModal();
+  }
+});
