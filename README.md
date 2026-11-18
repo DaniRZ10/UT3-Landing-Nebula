@@ -178,6 +178,9 @@ original y es suficiente para un ambiente de fondo.
 
 ## 5. Integración en HTML5
 
+> Este apartado describe la versión de la UT3. En la UT4 el vídeo pasa a un
+> modal y el audio pierde los controles nativos: ver el apartado 6.
+
 - **Estructura semántica:** `<header>` (logotipo y `<nav>`), `<main>` con una
   `<section>` por bloque (hero, sobre mí, galería, vídeo, audio, contacto) y
   `<footer>`.
@@ -366,7 +369,7 @@ BY y de Pixabay.
 
 ### 6.7 Verificación cross-browser y multi-dispositivo
 
-**Navegadores** (marcar tras probar cada uno):
+**Navegadores:**
 
 | Prueba                                                         | Chrome | Firefox | Edge |
 | -------------------------------------------------------------- | ------ | ------- | ---- |
